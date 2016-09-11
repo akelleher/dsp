@@ -9,7 +9,7 @@ end
 
 % Loop over harmonics, adding weighted versions to y
 for i=1:length(harmamps)
-    y = y+...
+    y = y+harmamps(i)*sin(2*pi*i*f0*t+harmphase(i));
 end
 
 % Normalize maximum amplitude to 0.95 so that 
