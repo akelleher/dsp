@@ -4,7 +4,7 @@ function [t,e] = envelope(fs,a,d,s,dur,r)
 
 % Attack: signal linearly increases from 0 to 1 in a seconds
 t = 0:1/fs:a;
-e = interp1([0 a-1/fs], [0 1], t);
+e = interp1([0 a], [0 1], t);
     
 % Decay: signal linearly decreases from 1 to s in d seconds
 tdelay = (a+1/fs):1/fs:(a+d); 
@@ -21,4 +21,4 @@ e = [e, esustain];
 % Release: signal linearly decreases from s to 0 in r seconds
 trelease = (a+d+dur+1/fs):1/fs:(a+d+dur+r);
 t = [t, trelease];
-e = [e, interp1([0 r], [s 0], trelease)];
+e = [e, interp1([a+d+dur a+d+dur+r], [s 0], trelease)];
