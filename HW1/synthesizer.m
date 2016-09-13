@@ -20,4 +20,4 @@ for i=1:length(notes)
 end
 
 % Play the sound
-sound(y,fs);
+%sound(y,fs);
