@@ -3,12 +3,12 @@ function F = dtft(f,T,N,w)
 %T - sampling period
 %N - number of samples either side of zero
 %w - vector of frequencies at which to sample DTFT
-transform = fft(f, 
+
 % Evaluate the DTFT sum directly for each of the w samples
 for i=1:length(w)
     F(i) = 0;
     for n=-N:N
-        F(i) = F(i) + fft()
+        F(i) = F(i) + f(n)*exp(-j*w(i)*n);
     end
 end
 
